@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import MainMenu from '../Store/MainMenu'
 import product from './CricketData.json';
 import CFilter from './CFilter';

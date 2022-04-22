@@ -62,11 +62,8 @@
  }
 
  .card{
-    box-shadow:
-    3.1px 3.2px 5.3px rgba(0, 0, 0, 0.012),
-    10.5px 10.7px 17.9px rgba(0, 0, 0, 0.018),
-    47px 48px 80px rgba(0, 0, 0, 0.03)
-  ; }
+  box-shadow:2px 4px 12px #1b1b1b10;  
+}
 
  .special{
      background-position: center;

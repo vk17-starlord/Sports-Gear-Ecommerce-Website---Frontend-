@@ -11,6 +11,8 @@ import UserProvider from './Context/UserProvider';
 import Homepage from './Store/Homepage';
 import Cricket from './Cricket/Cricket';
 import CricketDetail from './Cricket/CricketDetail';
+import Badminton from './Badminton/Badminton';
+import BadmintonDetail from './Badminton/BadmintonDetail';
 function App()
  {
    
@@ -34,6 +36,18 @@ function App()
       <Route path="/Cricket">
         <Cricket />
       </Route>
+     
+      <Route path="/Badminton/:id">
+        <BadmintonDetail />
+      </Route>
+
+      <Route path="/Badminton">
+        <Badminton />
+      </Route>
+    
+
+      
+
       <Route path="/:id">
         <CricketDetail />
       </Route>
