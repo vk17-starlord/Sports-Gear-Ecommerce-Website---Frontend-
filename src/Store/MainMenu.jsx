@@ -13,8 +13,8 @@ function MainMenu() {
        <div className="container md:w-full w-10/12  text-white h-[10vh]  mx-auto flex items-center justify-between ">
              <div className="col-1 flex">
                  
-       <img src={logo} className='w-[150px]' alt="" />
-
+<Link to='/Homepage'>       <img src={logo} className='w-[150px]' alt="" />
+</Link>
              </div>
     
             <div className="sports md:hidden">

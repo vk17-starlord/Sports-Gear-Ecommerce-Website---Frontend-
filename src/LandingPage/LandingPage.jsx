@@ -7,7 +7,7 @@ import Puma from '../assets/Puma.svg';
 import New_Balance from '../assets/New_Balance.svg';
 import yonex from '../assets/yonex.svg';
 import adidas from '../assets/adidas.svg';
-
+import { Link } from 'react-router-dom';
 function LandingPage() {
   return (
     <div className='Landing-Page'>
@@ -17,7 +17,10 @@ function LandingPage() {
               <p className='text-[#405DF8]'><i className='bx bxs-rocket'></i> Fast Shipping all over india</p>
               <h1 className='font-bold text-6xl text-left font-serif'>Win with the best sports gear</h1>
               <p className='text-left text-xl opacity-50 my-5 text-'>We've tied up with the best sports brand all over india to give you high quality & premium sports gear</p>
-                <button className ="cta bg-[#405DF8] w-full text-[#fff] rounded-md px-10 hover:bg-black py-3">Get Started</button>
+               <Link to='/Signup'>
+               <button className ="cta bg-[#405DF8] w-full text-[#fff] rounded-md px-10 hover:bg-black py-3">Get Started</button>
+
+               </Link>
             </div>
             <div className="col2 flex justify-center h-[90vh] items-center md:h-[auto] md:my-[5vh]">
             <img src={Heroimg} alt="" />  

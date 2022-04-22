@@ -9,6 +9,8 @@ import SignIn from './LandingPage/SignIn';
 import SignUp from './LandingPage/SignUp';
 import UserProvider from './Context/UserProvider';
 import Homepage from './Store/Homepage';
+import Cricket from './Cricket/Cricket';
+import CricketDetail from './Cricket/CricketDetail';
 function App()
  {
    
@@ -29,10 +31,17 @@ function App()
       <Route path="/SignUp">
         <SignUp />
       </Route>
+      <Route path="/Cricket">
+        <Cricket />
+      </Route>
+      <Route path="/:id">
+        <CricketDetail />
+      </Route>
+   
       <Route path="/">
         <LandingPage />
       </Route>
-   
+    
       
     </Switch>              
  }    

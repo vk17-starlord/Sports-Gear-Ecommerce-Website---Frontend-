@@ -60,6 +60,21 @@
      background-image: url('https://cdn.dribbble.com/users/43342/screenshots/12664713/media/3e4a9cab73827418927bfd364d42da20.jpg?compress=1&resize=1200x900&vertical=top');
      background-size: cover;
  }
+
+ .card{
+    box-shadow:
+    3.1px 3.2px 5.3px rgba(0, 0, 0, 0.012),
+    10.5px 10.7px 17.9px rgba(0, 0, 0, 0.018),
+    47px 48px 80px rgba(0, 0, 0, 0.03)
+  ; }
+
+ .special{
+     background-position: center;
+     background-color: #0079ba;
+     background-repeat: no-repeat;
+     background-size: contain;
+       background-image: url('https://contents.mediadecathlon.com/s919446/k$8543d1a8ecfd03ab173ecdbd0e4ab3c6/jersey%20main%20banner%20mobile.jpg?format=auto&quality=70&f=1680x0');
+     }
  @media screen and (max-width:1000px) {
     
 .bg-img{
