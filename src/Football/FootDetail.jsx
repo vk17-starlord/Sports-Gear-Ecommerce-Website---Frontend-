@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import MainMenu from '../Store/MainMenu';
-import data from './CricketData.json';
-function CricketDetail() {
+import data from './FootballData.json';
+function FootballDetail() {
 let {id} = useParams();
 const [CurrImg, setCurrImg] = useState(null);
 const [views, setview] = useState([]);
@@ -139,4 +139,4 @@ setMRP(rndInt)
   )
 }
 
-export default CricketDetail
+export default FootballDetail

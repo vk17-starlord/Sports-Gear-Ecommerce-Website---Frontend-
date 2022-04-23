@@ -68,12 +68,12 @@ setMRP(rndInt)
         <div className="store">
           <div className="flex w-8/12 md:w-full   items-center justify-between">
             
-          <p className='font-medium md:text-sm text-[16px] opacity-50 align-center'><i class='align-top text-xl bx bxs-store-alt'></i> Available on stores </p>
+          <p className='font-medium md:text-sm text-[16px] opacity-50 align-center'><i className='align-top text-xl bx bxs-store-alt'></i> Available on stores </p>
          <button className='text-[#405df8] md:hidden font-bold  hover:underline'>Know More</button>
           </div>
           <div className="flex w-8/12 md:w-full  my-3 items-center justify-between">
             
-          <p className='font-medium md:text-sm text-[16px] opacity-50 align-center'><i class='align-top text-xl bx bxs-credit-card'></i> EMI Available from {Math.round(product.price/4)} /- for 4 months  </p>
+          <p className='font-medium md:text-sm text-[16px] opacity-50 align-center'><i className='align-top text-xl bx bxs-credit-card'></i> EMI Available from {Math.round(product.price/4)} /- for 4 months  </p>
          <button className='text-[#405df8] md:hidden font-bold  hover:underline'>Know More</button>
           </div>
   

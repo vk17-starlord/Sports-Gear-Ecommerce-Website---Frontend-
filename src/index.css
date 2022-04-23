@@ -64,7 +64,13 @@
  .card{
   box-shadow:2px 4px 12px #1b1b1b10;  
 }
-
+  .football-bg{
+      background-image: url('https://contents.mediadecathlon.com/s881880/k$969beb002353fe75648a62a43a774dfa/agi.jpg?format=auto&quality=70&f=1680x0');
+  }
+ .badminton-bg{
+     background-size: cover;
+         background-image: url('https://i.pinimg.com/originals/03/d6/27/03d62726d2bdae4cf378ba88ae13a38d.gif');
+ }
  .special{
      background-position: center;
      background-color: #0079ba;

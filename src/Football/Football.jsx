@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import MainMenu from '../Store/MainMenu'
-import product from './CricketData.json';
-import CFilter from './CFilter';
+import product from './FootballData.json';
+import FFilter from './FFilter';
 import { Link } from 'react-router-dom';
 
-function Cricket() {
+function Football() {
     const [data, setdata] = useState(product);
     const [open, setopen] = useState(false);
     
@@ -15,7 +15,7 @@ function Cricket() {
     <>
        <MainMenu />
         <div className="w-full h-auto bg-[#0079ba]">
-        <div className="special w-10/12 mx-auto md:h-[20vh] h-[50vh]"></div>
+        <div className="football-bg w-12/12 mx-auto md:h-[20vh] h-[50vh]"></div>
 
         </div>
         <div className="md:flex px-10 justify-between items-center w-[100%] sticky top-0 bg-[#f9faff]  z-50 min-h-[10vh]  hidden">
@@ -27,16 +27,16 @@ function Cricket() {
            </div>
            {
              open ?
-             <CFilter setdata={setdata} toggle={toggle} /> :null              
+             <FFilter setdata={setdata} toggle={toggle} /> :null              
              
            }        
        <div className="grid  grid-cols-[2fr_10fr] md:grid-cols-1 mt-[10vh] md:mt-0 w-10/12 mx-auto ">
            <div className="filter md:hidden">
-             <CFilter setdata={setdata} toggle={toggle} />               
+             <FFilter setdata={setdata} toggle={toggle} />               
            </div>
            <div className="p-container md:grid-cols-2 sm:grid-cols-1 w-full min-h-screen grid grid-cols-3 gap-5">
            {
-               data.map((ele)=><Link to={`/${ele.id}`}>
+               data.map((ele)=><Link to={`/Football/${ele.id}`}>
                
                <div className=" h-[max-content] w-full card p-[12px] rounded-md">
                     <img className='rounded-md  w-full' src={ele.thumbnail} alt="" />
@@ -62,4 +62,4 @@ function Cricket() {
   )
 }
 
-export default Cricket
+export default Football

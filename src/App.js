@@ -13,6 +13,9 @@ import Cricket from './Cricket/Cricket';
 import CricketDetail from './Cricket/CricketDetail';
 import Badminton from './Badminton/Badminton';
 import BadmintonDetail from './Badminton/BadmintonDetail';
+import Football from './Football/Football';
+import FootballDetail from './Football/FootDetail';
+
 function App()
  {
    
@@ -33,6 +36,13 @@ function App()
       <Route path="/SignUp">
         <SignUp />
       </Route>
+      <Route path="/Football/:id">
+        <FootballDetail />
+      </Route>
+
+      <Route path="/Football">
+        <Football />
+      </Route>
       <Route path="/Cricket">
         <Cricket />
       </Route>
@@ -45,7 +55,7 @@ function App()
         <Badminton />
       </Route>
     
-
+    
       
 
       <Route path="/:id">

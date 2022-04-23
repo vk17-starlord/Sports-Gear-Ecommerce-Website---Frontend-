@@ -65,21 +65,21 @@ return (false);
 <p className='text-left text-xl'>Enter Your Name</p>
   <input type="name" onChange={(e)=>{
          setname(e.target.value)
-}} name="name" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="John Doe" />   
+}} name="name" className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="John Doe" />   
  </div>            
  
  <div className="input mt-[25px]">
 <p className='text-left text-xl'>Enter Your Email</p>
   <input type="email"  onChange={(e)=>{
          setemail(e.target.value)
-}} name="email" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="JohnDoe@example.com" />   
+}} name="email" className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="JohnDoe@example.com" />   
  </div>            
  
  <div className="input mt-[25px]">
 <p className='text-left text-xl'>Enter Your Password</p>
   <input  onChange={(e)=>{
          setpassword(e.target.value)
-}} type="password" name="password" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="yourpass@1234" />   
+}} type="password" name="password" className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="yourpass@1234" />   
  </div>            
 
 <button onClick={()=>{

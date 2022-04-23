@@ -1,25 +1,21 @@
 import React, { useState } from 'react'
-import data from './CricketData.json'
-function CFilter({setdata,toggle}) {
-  const [CricketCategory, setCricketCategory] = useState([
+import data from './FootballData.json'
+function FFilter({setdata,toggle}) {
+  const [FootballCategory, setFootballCategory] = useState([
     {
       name:'jersey',
       isactive:false,
     },
     {
-      name:'topwear',
+      name:'football',
       isactive:false,
     },
     {
-      name:'bottomwear',
+      name:'shorts',
       isactive:false,
     },
     {
-      name:'bat',
-      isactive:false,
-    },
-    {
-      name:'kit',
+      name:'shoes',
       isactive:false,
     }
   
@@ -27,16 +23,16 @@ function CFilter({setdata,toggle}) {
 
 
   const ChangeCategory=(name)=>{
-     let array = CricketCategory.filter((ele)=>{
+     let array = FootballCategory.filter((ele)=>{
        
       if(ele.name===name){
          ele.isactive=!ele.isactive;
        }
        return ele;
      })      
-     setCricketCategory(array)
+     setFootballCategory(array)
      let products = data.filter((element)=>{
-       if(CricketCategory.some(ele=>ele.name==element.category && ele.isactive)){
+       if(FootballCategory.some(ele=>ele.name==element.category && ele.isactive)){
          return element;
        }
      })
@@ -51,7 +47,7 @@ function CFilter({setdata,toggle}) {
 <div>
 <h1 className='font-bold text-xl mb-5'>CATEGORY </h1>
     {
-      CricketCategory.map((ele)=>
+      FootballCategory.map((ele)=>
       <div className='my-2 flex w-full items-center pr-5 justify-between'>
         <h1 className='font-semibold uppercase'>{ele.name}</h1>
         <input type="checkbox" className="w-[25px] checked:bg-blue-500 " checked={ele.isactive} onChange={()=>{
@@ -121,4 +117,4 @@ function CFilter({setdata,toggle}) {
   )
 }
 
-export default CFilter
+export default FFilter
