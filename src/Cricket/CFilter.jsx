@@ -47,7 +47,7 @@ function CFilter({setdata,toggle}) {
      }
     }
   return (
-    <div className='w-full text-left py-5  flex flex-col md:justify-center align-center sticky top-0 md:px-5  min-h-[100vh] md:min-h-[autoa] bg-white'>
+    <div className='w-full text-left py-5 z-40 flex flex-col md:justify-center align-center sticky top-0 md:px-5  min-h-[100vh] md:min-h-[autoa] bg-[#f9faff]'>
 <div>
 <h1 className='font-bold text-xl mb-5'>CATEGORY </h1>
     {

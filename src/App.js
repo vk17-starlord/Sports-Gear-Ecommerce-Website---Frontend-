@@ -15,7 +15,8 @@ import Badminton from './Badminton/Badminton';
 import BadmintonDetail from './Badminton/BadmintonDetail';
 import Football from './Football/Football';
 import FootballDetail from './Football/FootDetail';
-
+import Tennis from './Tennis/Tennis';
+import TennisDetail from './Tennis/TennisDetail';
 function App()
  {
    
@@ -39,10 +40,18 @@ function App()
       <Route path="/Football/:id">
         <FootballDetail />
       </Route>
-
       <Route path="/Football">
         <Football />
       </Route>
+
+
+      <Route path="/Tennis/:id">
+        <TennisDetail />
+      </Route>
+      <Route path="/Tennis">
+        <Tennis />
+      </Route>
+
       <Route path="/Cricket">
         <Cricket />
       </Route>

@@ -8,8 +8,6 @@ function Sidenav({toggle}) {
             <Link className='text-[18px] text-[#F9F9F9] hover:underline my-3' to="/Football">Football</Link>
             <Link className='text-[18px] text-[#F9F9F9] hover:underline my-3' to="/Cricket">Cricket</Link>
             <Link className='text-[18px] text-[#F9F9F9] hover:underline my-3' to="/Tennis">Tennis</Link>
-            <Link className='text-[18px] text-[#F9F9F9] hover:underline my-3' to="/Running">Running</Link>
-            <Link className='text-[18px] text-[#F9F9F9] hover:underline my-3' to="/Basketball">Basketball</Link>
             <button onClick={toggle} className='bg-[#333333] w-7/12 rounded-md mt-10 hover:bg-black py-3' >Close </button>
 
     </div>

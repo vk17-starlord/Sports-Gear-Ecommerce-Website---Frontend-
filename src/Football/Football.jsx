@@ -14,7 +14,7 @@ function Football() {
   return (
     <>
        <MainMenu />
-        <div className="w-full h-auto bg-[#0079ba]">
+        <div className="w-full h-auto bg-[#0a67fd]">
         <div className="football-bg w-12/12 mx-auto md:h-[20vh] h-[50vh]"></div>
 
         </div>

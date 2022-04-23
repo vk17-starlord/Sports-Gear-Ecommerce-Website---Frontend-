@@ -22,9 +22,6 @@ function MainMenu() {
             <Link className='text-[18px] hover:text-black text-[#F9F9F9] hover:underline mx-3' to="/Football">Football</Link>
             <Link className='text-[18px] hover:text-black text-[#F9F9F9] hover:underline mx-3' to="/Cricket">Cricket</Link>
             <Link className='text-[18px] hover:text-black text-[#F9F9F9] hover:underline mx-3' to="/Tennis">Tennis</Link>
-            <Link className='text-[18px] hover:text-black text-[#F9F9F9] hover:underline mx-3' to="/Running">Running</Link>
-            <Link className='text-[18px] hover:text-black text-[#F9F9F9] hover:underline mx-3' to="/Basketball">Basketball</Link>
-
             </div>
             <div className="cart">
             <button className='text-2xl mx-2 hover:text-black'> <i className='bx bx-bookmark-heart'></i></button>

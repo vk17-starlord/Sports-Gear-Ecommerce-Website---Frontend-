@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import data from './BadmintonData.json'
-function BFilter({setdata,toggle}) {
+import data from './TennisData.json'
+function TFilter({setdata,toggle}) {
 
 
   const [CricketCategory, setCricketCategory] = useState([
@@ -9,18 +9,25 @@ function BFilter({setdata,toggle}) {
       isactive:false,
     },
     {
-      name:'topwear',
+      name:'jersey',
       isactive:false,
     },
     {
-      name:'bottomwear',
+      name:'shorts',
       isactive:false,
     },
     {
       name:'shoes',
       isactive:false,
     },
-  
+    {
+      name:'ball',
+      isactive:false,
+    },
+    {
+      name:'bag',
+      isactive:false,
+    },
   ]);
 
 
@@ -45,7 +52,7 @@ function BFilter({setdata,toggle}) {
      }
     }
   return (
-    <div className='w-full text-left py-5 z-40 flex flex-col md:justify-center align-center sticky top-0 md:px-5  min-h-[100vh] md:min-h-[autoa] bg-[#f9faff]'>
+    <div className='w-full text-left py-5  flex flex-col md:justify-center align-center sticky top-0 md:px-5  min-h-[100vh] md:min-h-[auto] z-40 bg-[#f9faff]'>
 <div>
 <h1 className='font-bold text-xl mb-5'>CATEGORY </h1>
     {
@@ -117,4 +124,4 @@ function BFilter({setdata,toggle}) {
   )
 }
 
-export default BFilter
+export default TFilter
