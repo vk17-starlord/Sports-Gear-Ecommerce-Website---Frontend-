@@ -22,24 +22,24 @@ function Cart() {
    return (
     <div>
   <MainMenu/>
-   <div className="grid w-10/12 grid-cols-[7fr_5fr] mx-auto">
+   <div className="grid w-10/12 grid-cols-[7fr_5fr] md:grid-cols-1 mx-auto">
        <div className="col-1 min-h-screen py-5 px-2 md:min-h-[auto]">
               <h1 className='text-2xl text-left pb-5 font-semibold'>Shopping Cart</h1>
               <h2 className='opacity-20 text-xl text-left font-medium'>Billing Details</h2>
-              <div className="grid grid-cols-2 gap-1 ">
+              <div className="grid grid-cols-2  gap-1 ">
               
-              <div className="input mt-[12px]">
+              <div className="input mt-[12px] md:col-span-2">
 <p className='text-left text-[16px] mb-2'>Enter You Name</p>
   <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="John Doe" />   
  </div>            
- <div className="input mt-[12px]">
+ <div className="input mt-[12px] md:col-span-2">
 <p className='text-left text-[16px] mb-2'>Enter You Name</p>
   <input type="email" name="email"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="JohnDoe@mail.com" />   
  </div>            
 
  <div className="input mt-[12px] col-span-2">
 <p className='text-left text-[16px] mb-2'>Enter You Mobile Number</p>
-  <input type="tel" name="tel"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="John Doe" />   
+  <input type="tel" name="tel"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="+91 91746 28282" />   
  </div>            
 
               </div>
@@ -48,7 +48,7 @@ function Cart() {
               <h2 className='opacity-20 text-xl text-left font-medium mt-[3vh]'>Address Details</h2>
               <div className="grid grid-cols-2 gap-2">
               
-              <div className="input mt-[12px]">
+              <div className="input md:col-span-2 mt-[12px]">
               <p className='text-left text-[16px] mb-2'>Enter Your Address</p>
     <textarea
       class="
@@ -75,17 +75,17 @@ function Cart() {
            </div>            
  <div className="input mt-[12px]">
 <p className='text-left text-[16px] mb-2'>Enter Your State</p>
-  <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="John Doe" />   
+  <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Maharashtra" />   
  </div>            
 
  <div className="input mt-[12px] ">
 <p className='text-left text-[16px] mb-2'>Enter Your City</p>
-  <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="John Doe" />   
+  <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Pune" />   
  </div>            
 
- <div className="input mt-[12px] ">
+ <div className="input mt-[12px] md:col-span-2 ">
 <p className='text-left text-[16px] mb-2'>Enter Your Zip Code</p>
-  <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="John Doe" />   
+  <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="411041" />   
  </div>            
 
               </div>
