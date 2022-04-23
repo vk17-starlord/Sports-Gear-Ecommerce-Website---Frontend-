@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import {CartDeleteContext, CartContext} from './Context/CartContext';
 import MainMenu from './Store/MainMenu';
 
@@ -13,130 +14,86 @@ function Cart() {
     }) 
     settotal(sum)
  }
+ 
+useEffect(() => {
+    CalcBill()
+}, [bag]);
 
- useEffect(() => {
-     CalcBill()
- }, [bag]);
-
+let history = useHistory()
+function Check(){
+  
+    history.push('/Address')
+}
    return (
     <div>
   <MainMenu/>
-   <div className="grid w-10/12 grid-cols-[7fr_5fr] md:grid-cols-1 mx-auto">
-       <div className="col-1 min-h-screen py-5 px-2 md:min-h-[auto]">
-              <h1 className='text-2xl text-left pb-5 font-semibold'>Shopping Cart</h1>
-              <h2 className='opacity-20 text-xl text-left font-medium'>Billing Details</h2>
-              <div className="grid grid-cols-2  gap-1 ">
-              
-              <div className="input mt-[12px] md:col-span-2">
-<p className='text-left text-[16px] mb-2'>Enter You Name</p>
-  <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="John Doe" />   
- </div>            
- <div className="input mt-[12px] md:col-span-2">
-<p className='text-left text-[16px] mb-2'>Enter You Name</p>
-  <input type="email" name="email"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="JohnDoe@mail.com" />   
- </div>            
-
- <div className="input mt-[12px] col-span-2">
-<p className='text-left text-[16px] mb-2'>Enter You Mobile Number</p>
-  <input type="tel" name="tel"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="+91 91746 28282" />   
- </div>            
-
-              </div>
-
-
-              <h2 className='opacity-20 text-xl text-left font-medium mt-[3vh]'>Address Details</h2>
-              <div className="grid grid-cols-2 gap-2">
-              
-              <div className="input md:col-span-2 mt-[12px]">
-              <p className='text-left text-[16px] mb-2'>Enter Your Address</p>
-    <textarea
-      class="
-        form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-      "
-      id="exampleFormControlTextarea1"
-      rows="1"
-      placeholder="124 , ABC Street "
-    ></textarea>
-           </div>            
- <div className="input mt-[12px]">
-<p className='text-left text-[16px] mb-2'>Enter Your State</p>
-  <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Maharashtra" />   
- </div>            
-
- <div className="input mt-[12px] ">
-<p className='text-left text-[16px] mb-2'>Enter Your City</p>
-  <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Pune" />   
- </div>            
-
- <div className="input mt-[12px] md:col-span-2 ">
-<p className='text-left text-[16px] mb-2'>Enter Your Zip Code</p>
-  <input type="name" name="name"  className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="411041" />   
- </div>            
-
-              </div>
-
- 
-       </div>
-       <div className="col-1  my-5 min-h-screen py-5 px-5  md:min-h-[auto]">
-            <div className="w-8/12 rounded-lg p-5 bg-white mx-auto">
-            <h1 className='text-2xl text-left pb-5 font-semibold'>Order Summary</h1>
-       
-       {
-             bag.map((ele,index)=>
-                <div key={index} className='w-full my-5 grid grid-cols-[3fr_10fr]' >
-                    <div className="col-1">
-                        <img src={ele.thumbnail} className="max-w-12/12" alt="" />
+  {
+      total!=0? <div className="md:flex  md:flex-col md:flex-col-reverse grid md:w-full w-10/12 grid-cols-[7fr_5fr] md:grid-cols-1 mx-auto">
+      <div className="col-1  my-5 min-h-screen py-5 px-5  md:min-h-[auto]">
+           <div className="md:w-full w-12/12 rounded-lg p-5 bg-white mx-auto">
+           <h1 className='text-2xl  text-left pb-5 font-semibold'>Order Summary</h1>
+      
+            <div className="grid-cols-2 grid gap-2 w-full">
+            {
+            bag.map((ele,index)=>
+               <div key={index} className='w-full my-5 grid grid-cols-[3fr_9fr]' >
+                   <div className="col-1">
+                       <img src={ele.thumbnail}  alt="" />
+                   </div>
+                   <div className="col-1 flex flex-col justify-between text-left px-2">
+                   <h2 className='md:text-sm font-semibold text-left text-[14px] md:text-[16px]  uppercase'>{ele.name.length>35?ele.name.slice(0,35).concat('..'):ele.name}</h2>
+                   <div className="flex items-center justify-between w-full ">
+                   <h4 className='text-left text-[14px] font-semibold opacity-70  uppercase'>Price - ₹ {ele.price}</h4>
+                   <button onClick={()=>{
+       deleteProduct(ele.id)
+    }} className ="lg:text-sm   w-6/12 py-2 mx-2 text-[#FF0000] rounded-md    font-semibold text-[15px] px-2 max-w-[36px] h-[36px] flex items-center justify-center rounded-full cta md:text-sm md:px-2 bg-[#FFF3F3]  hover:bg-[#FF0000] hover:text-[#FFF3F3]  "><i class='bx bxs-trash text-[18px]'></i></button>
+                   </div>        
                     </div>
-                    <div className="col-1 flex flex-col justify-between text-left px-2">
-                    <h2 className='font-semibold text-left text-[16px] md:text-[16px]  uppercase'>{ele.name.length>35?ele.name.slice(0,35).concat('..'):ele.name}</h2>
-                    <h4 className='text-left mt-1 text-[14px] font-semibold opacity-50 mb-2 uppercase'>{ele.category}</h4>
-                    <div className="flex items-center justify-between w-full ">
-                    <h4 className='text-left text-[14px] font-semibold opacity-70 mb-2 uppercase'>Price - ₹ {ele.price}</h4>
-                    <button onClick={()=>{
-        deleteProduct(ele.id)
-     }} className ="lg:text-sm  w-6/12 py-2 mx-2 text-[#FF0000] rounded-md    font-semibold text-[15px] px-2 max-w-[36px] h-[36px] flex items-center justify-center rounded-full cta md:text-sm md:px-2 bg-[#FFF3F3]  hover:bg-[#FF0000] hover:text-[#FFF3F3]  "><i class='bx bxs-trash text-[18px]'></i></button>
-                    </div>        
-                     </div>
-                </div>    
-            )
-        }
- {
-     bag.length>0 ?   
-     <div className="bill my-7 text-left pr-4">
-     <h1 className='font-semibold my-3 text-[18]'>Total - <span className='opacity-50 font-medium'> ₹  {total} </span></h1>
-     <h1 className='font-semibold my-3  text-[18]'>Shipping - <span className='opacity-50 font-medium'> ₹  {101} </span></h1>
-     <h1 className='font-semibold my-3  text-[18]'>GST - <span className='opacity-50 font-medium'> ₹  {99} </span></h1>
-
-     <h1 className='font-semibold my-3  text-left text-[#405DF8] text-[20px]'>Grand Total  - <span className=' font-medium'> ₹  {total+99+101} /- </span></h1> 
-     <button  className="w-full cta bg-[#405DF8] text-[#fff] rounded-md px-10 hover:bg-black py-3"> Place My Order <i class='bx bxs-gift text-xl align-top mx-2' ></i> </button>
-         
-     </div> : 
-         <div>
-        
-             <img src="https://cdn.dribbble.com/users/324185/screenshots/15805709/media/98798b7662d8a4b21cb66ad4bd430b48.jpg?compress=1&resize=800x600&vertical=top" alt="" />
-            <h1 className='font-semibold my-3 '>You're Cart Is Empty</h1>
-         </div>
- }
-  
+               </div>    
+           )
+       }
             </div>
-       </div>
 
-   </div>
+           </div>
+      </div>
+   <div className=" w-full">
+        <div className="min-h-[50vh] bg-white bill w-8/12 ml-auto p-5 mt-10">
+        <h1 className='text-2xl  text-left pb-5 font-semibold '>Final Bill</h1>
+            <div className="border-t border-b py-4 my-2  w-full grid grid-cols-[5fr_7fr]">
+            <h1 className='text-left font-semibold opacity-60 text-md'>Total Bill</h1>
+            <h1 className='text-right opacity-50  mb-3'> - ₹ {total}</h1>
+ 
+            <h1 className='text-left font-semibold opacity-60 text-md'>Shipping Charges</h1>
+            <h1 className='text-right opacity-50  mb-3'> - ₹ 199</h1>
+ 
+            <h1 className='text-left font-semibold opacity-60 text-md'>GST</h1>
+            <h1 className='text-right opacity-50  '> - ₹ 101 </h1>
+ 
+ 
+ 
+            </div>
+            <div className="flex justify-between w-full">
+            <h1 className='text-left font-semibold text-[18px]'>Grand Total  </h1>
+            <h1 className='text-right opacity-50 text-[18px] '> - ₹ {total+199+101} </h1>
+        
+            </div>
+            <button onClick={()=>{
+Check()
+}} className="w-full col-span-2 mt-4 cta bg-[#405DF8] text-[#fff] rounded-md px-10 hover:bg-black py-2 text-[16px] "> Place My Order <i class='bx bxs-gift mx-2 align-middle text-xl'></i> </button>
 
+         </div>
+  
+    </div>
+  </div>
+:<div className='w-full h-[90vh] flex items-center justify-center'>
+    <div className="w-4/12 flex items-center flex-col">
+        
+     <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-4816550-4004141.png" alt="" />
+     <h1 className='text-center font-semibold text-[18px]'>Hey , The Cart Seems Empty !!  </h1>
+     <p>There is nothing in your cart let's add something</p>
+    </div>
+  </div>  
+  }
     </div>
   )
 }

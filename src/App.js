@@ -20,6 +20,9 @@ import FootballDetail from './Football/FootDetail';
 import Tennis from './Tennis/Tennis';
 import TennisDetail from './Tennis/TennisDetail';
 import Cart from './Cart';
+import Payment from './Payment';
+import Address from './Address';
+
 function App()
  {
    
@@ -48,6 +51,9 @@ function App()
         <Football />
       </Route>
 
+      <Route path="/Address">
+        <Address />
+      </Route>
 
       <Route path="/Tennis/:id">
         <TennisDetail />
@@ -73,7 +79,10 @@ function App()
         <Cart />
       </Route>
       
-
+      <Route path="/Payment">
+        <Payment />
+      </Route>
+      
       <Route path="/:id">
         <CricketDetail />
       </Route>
