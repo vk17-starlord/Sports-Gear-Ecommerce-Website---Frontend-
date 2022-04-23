@@ -8,6 +8,8 @@ import LandingPage from './LandingPage/LandingPage';
 import SignIn from './LandingPage/SignIn';
 import SignUp from './LandingPage/SignUp';
 import UserProvider from './Context/UserProvider';
+import CartContext from './Context/CartContext';
+
 import Homepage from './Store/Homepage';
 import Cricket from './Cricket/Cricket';
 import CricketDetail from './Cricket/CricketDetail';
@@ -17,12 +19,14 @@ import Football from './Football/Football';
 import FootballDetail from './Football/FootDetail';
 import Tennis from './Tennis/Tennis';
 import TennisDetail from './Tennis/TennisDetail';
+import Cart from './Cart';
 function App()
  {
    
   return (
     <div className="App min-h-screen bg-[#F9FAFF]">
 
+        <CartContext>
 
          <UserProvider>
          <Router>
@@ -65,6 +69,9 @@ function App()
       </Route>
     
     
+      <Route path="/Cart">
+        <Cart />
+      </Route>
       
 
       <Route path="/:id">
@@ -82,7 +89,8 @@ function App()
 
 
          </UserProvider>
- 
+         </CartContext>
+        
      </div>
   );
 }

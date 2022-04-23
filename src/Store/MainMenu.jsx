@@ -25,7 +25,9 @@ function MainMenu() {
             </div>
             <div className="cart">
             <button className='text-2xl mx-2 hover:text-black'> <i className='bx bx-bookmark-heart'></i></button>
-            <button className='text-2xl mx-2 hover:text-black'> <i className='bx bxs-cart-alt'></i></button>
+          <Link to='/Cart'>
+          <button className='text-2xl mx-2 hover:text-black'> <i className='bx bxs-cart-alt'></i></button>
+          </Link>
             <button className='text-2xl mx-2 hover:text-black hidden md:inline' onClick={toggle}> <i className='bx bx-menu-alt-right'></i></button>
            
             </div>

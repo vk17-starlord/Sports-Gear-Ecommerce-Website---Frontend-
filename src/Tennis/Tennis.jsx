@@ -47,7 +47,7 @@ function Tennis() {
                      <h1 className='text-left  font-semibold text-xl'>₹ {ele.price} </h1>
                      </div>
                       <div>
-                      <button className ="lg:text-sm px-2 cta md:text-sm md:px-2 bg-[#405DF8] w-full text-[#fff] rounded-md px-10 hover:bg-black py-2 font-semibold text-[16px] ">Add To Cart <i className='bx bxs-cart-alt text-xl align-middle'></i> </button>
+                      <button className ="lg:text-sm px-2 cta md:text-sm md:px-2 bg-[#405DF8] w-full text-[#fff] rounded-md px-10 hover:bg-black py-2 font-semibold text-[16px] ">View Product <i className='bx bxs-right-arrow-alt text-xl align-middle'></i> </button>
                       </div>
                   </div>
                </div>

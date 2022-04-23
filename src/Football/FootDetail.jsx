@@ -1,19 +1,35 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import MainMenu from '../Store/MainMenu';
 import data from './FootballData.json';
-function FootballDetail() {
-let {id} = useParams();
+import {CartUpdateContext} from '../Context/CartContext';
+function FootDetail() {
+
+
+  let {id} = useParams();
 const [CurrImg, setCurrImg] = useState(null);
 const [views, setview] = useState([]);
 const [isActive, setisActive] = useState(0);
 const [MRP, setMRP] = useState(0);
 const [size, setsize] = useState(0);
+const [isAdded, setisAdded] = useState(false);
 
 let product = data.filter((ele)=>{
   return ele.id===id;
 },[0])
 product = product[0];
+
+let cartUpdate = useContext(CartUpdateContext)
+const CheckCart = (ele)=>{
+  let result = cartUpdate(ele);
+ if(result===false){
+  alert('Already added this product !')
+ }else{
+   setisAdded(true)
+   alert('Product Added Succussfully !')
+ }
+
+}
 
 useEffect(() => { 
 setCurrImg(product.views[0])
@@ -115,13 +131,13 @@ setMRP(rndInt)
        <h1 className='font-bold my-2'>SIZE -</h1>
        {
          product.size.map((ele,index)=>
-          index===size ?  <button onClick={()=>{
+          index===size ?   <button onClick={()=>{
             setsize(index)
-          }} className="mx-2 text-[16px] uppercase  w-[40px] h-[40px] flex items-center justify-center rounded-full bg-[#405DF8] text-white font-bold">
+          }} key={index} className="mx-2 text-[16px] uppercase  w-[40px] h-[40px] flex items-center justify-center rounded-full bg-[#405DF8] text-white font-bold">
           {ele}
         </button>: <button onClick={()=>{
           setsize(index)
-        }} className="mx-2 text-[16px] uppercase font-medium w-[40px] h-[40px] flex items-center justify-center rounded-full bg-[#E5E5E5]">
+        }} key={index} className="mx-2 text-[16px] uppercase font-medium w-[40px] h-[40px] flex items-center justify-center rounded-full bg-[#E5E5E5]">
            {ele}
          </button>
           )
@@ -130,7 +146,9 @@ setMRP(rndInt)
     :null
      }
      <div className="cart grid md:grid-cols-1 grid-cols-2 gap-3">
-     <button className ="cta flex justify-center items-center md:text-sm md:px-2  bg-[#405DF8] mt-2 w-full text-[#fff] rounded-md px-10 hover:bg-black py-3 font-semibold  text-md ">Add To Cart <i className='bx bxs-cart-alt text-xl mx-2 align-top'></i> </button>
+     <button className ="cta flex justify-center items-center md:text-sm md:px-2  bg-[#405DF8] mt-2 w-full text-[#fff] rounded-md px-10 hover:bg-black py-3 font-semibold  text-md " onClick={()=>{
+       CheckCart(product)
+     }}>{isAdded?'Added To The Cart':'Add To Cart'} <i className='bx bxs-cart-alt text-xl mx-2 align-top'></i> </button>
      <button className ="cta flex justify-center items-center md:text-sm md:px-2  bg-[#F3F5FF] mt-2 w-full text-[#405DF8] rounded-md px-10 border-2 border-[#405DF8]  py-3 font-semibold text-md ">Add To Wishlist <i className='bx bx-bookmark-heart text-xl mx-2 align-top'></i> </button>
      </div>
      </div>
@@ -139,4 +157,4 @@ setMRP(rndInt)
   )
 }
 
-export default FootballDetail
+export default FootDetail

@@ -18,10 +18,10 @@ function Football() {
         <div className="football-bg w-12/12 mx-auto md:h-[20vh] h-[50vh]"></div>
 
         </div>
-        <div className="md:flex px-10 justify-between items-center w-[100%] sticky top-0 bg-[#f9faff]  z-50 min-h-[10vh]  hidden">
+        <div className="md:flex px-10 justify-between items-center w-[100%] sticky top-0 bg-[#f9faff]  z-40 min-h-[10vh]  hidden">
           <button onClick={()=>{
             toggle()
-          }} className="border py-2 items-center w-4/12  flex justify-around font-semibold px-2">
+          }} className="border py-2 items-center w-4/12  flex justify-around font-semibold px-2 z-40">
             Filter <i className='bx bx-filter text-xl align-center'></i>
           </button>
            </div>
@@ -47,7 +47,7 @@ function Football() {
                         <h1 className='text-left  font-semibold text-xl'>₹ {ele.price} </h1>
                         </div>
                          <div>
-                         <button className ="cta md:text-sm md:px-2 bg-[#405DF8] w-full text-[#fff] rounded-md px-10 hover:bg-black py-2 font-semibold text-[16px] ">Add To Cart <i className='bx bxs-cart-alt text-xl align-middle'></i> </button>
+                         <button className ="lg:text-sm px-2 cta md:text-sm md:px-2 bg-[#405DF8] w-full text-[#fff] rounded-md px-10 hover:bg-black py-2 font-semibold text-[16px] ">View Product <i className='bx bxs-right-arrow-alt text-xl align-middle'></i> </button>
                          </div>
                      </div>
                   </div>
