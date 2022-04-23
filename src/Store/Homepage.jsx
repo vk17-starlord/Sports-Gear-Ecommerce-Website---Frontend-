@@ -7,7 +7,6 @@ import TennisData from '../Tennis/TennisData.json';
 import BadmintonData from '../Badminton/BadmintonData.json';
 import FootballData from '../Football/FootballData.json';
 import { Link } from 'react-router-dom';
-import {CartUpdateContext,CartContext} from '../Context/CartContext';
 
 function Homepage() {
   let history = useHistory();  
@@ -41,7 +40,7 @@ function Homepage() {
       <h1 className='text-left font-bold text-3xl'>Fever</h1>
     </div>
     
-    <div className="grid gap-3   min-h-[50vh] my-[5vh] w-10/12 mx-auto grid-cols-4">
+    <div className="grid gap-3 md:grid-cols-2 sm:grid-cols-1 min-h-[50vh] my-[5vh] w-10/12 mx-auto grid-cols-4">
     {
                cricketData.map((ele,index)=><Link key={index} to={`/${ele.id}`}>
                
@@ -73,7 +72,7 @@ function Homepage() {
       <h1 className='text-left font-bold text-3xl'>Freaks</h1>
     </div>
     
-    <div className="grid gap-3  min-h-[50vh] my-[5vh] w-10/12 mx-auto grid-cols-4">
+    <div className="grid gap-3 md:grid-cols-2 sm:grid-cols-1 min-h-[50vh] my-[5vh] w-10/12 mx-auto grid-cols-4">
     {
                FootballData.map((ele,index)=><Link key={index} to={`/Football/${ele.id}`}>
                

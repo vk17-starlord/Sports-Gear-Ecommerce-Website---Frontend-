@@ -23,6 +23,10 @@ function BFilter({setdata,toggle}) {
   
   ]);
 
+   const SortByLow=()=>{
+    let newData = data?.sort((a, b) => (a.price > b.price ? 1 : -1))  
+    console.log(setdata)
+  }
 
   const ChangeCategory=(name)=>{
      let array = CricketCategory.filter((ele)=>{
@@ -65,7 +69,9 @@ function BFilter({setdata,toggle}) {
 <h1 className='font-bold text-xl my-5'>Sort By </h1>
 <div className='my-2 flex w-full items-center pr-5 justify-between'>
         <h1 className='font-semibold uppercase'>Low To High</h1>
-        <input type="checkbox" className="w-[25px] checked:bg-blue-500 " />
+        <input type="checkbox"  onChange={()=>{
+          SortByLow()
+        }} className="w-[25px] checked:bg-blue-500 " />
       </div>
       <div className='my-2 flex w-full items-center pr-5 justify-between'>
         <h1 className='font-semibold uppercase'>High To Low</h1>

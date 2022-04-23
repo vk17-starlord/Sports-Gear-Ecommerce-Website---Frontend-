@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import {CartContext} from './Context/CartContext';
+import {CartDeleteContext, CartContext} from './Context/CartContext';
 import MainMenu from './Store/MainMenu';
 
 function Cart() {
-
- 
+ let deleteProduct = useContext(CartDeleteContext)
  let bag = useContext(CartContext) 
   const [total, settotal] = useState(0);
  const CalcBill = ()=>{
@@ -107,7 +106,9 @@ function Cart() {
                     <h4 className='text-left mt-1 text-[14px] font-semibold opacity-50 mb-2 uppercase'>{ele.category}</h4>
                     <div className="flex items-center justify-between w-full ">
                     <h4 className='text-left text-[14px] font-semibold opacity-70 mb-2 uppercase'>Price - ₹ {ele.price}</h4>
-                    <button className ="lg:text-sm  w-6/12 py-2 mx-2 text-[#FF0000] rounded-md    font-semibold text-[15px] px-2 max-w-[36px] h-[36px] flex items-center justify-center rounded-full cta md:text-sm md:px-2 bg-[#FFF3F3]  hover:bg-[#FF0000] hover:text-[#FFF3F3]  "><i class='bx bxs-trash text-[18px]'></i></button>
+                    <button onClick={()=>{
+        deleteProduct(ele.id)
+     }} className ="lg:text-sm  w-6/12 py-2 mx-2 text-[#FF0000] rounded-md    font-semibold text-[15px] px-2 max-w-[36px] h-[36px] flex items-center justify-center rounded-full cta md:text-sm md:px-2 bg-[#FFF3F3]  hover:bg-[#FF0000] hover:text-[#FFF3F3]  "><i class='bx bxs-trash text-[18px]'></i></button>
                     </div>        
                      </div>
                 </div>    
@@ -121,7 +122,7 @@ function Cart() {
      <h1 className='font-semibold my-3  text-[18]'>GST - <span className='opacity-50 font-medium'> ₹  {99} </span></h1>
 
      <h1 className='font-semibold my-3  text-left text-[#405DF8] text-[20px]'>Grand Total  - <span className=' font-medium'> ₹  {total+99+101} /- </span></h1> 
-     <button className="w-full cta bg-[#405DF8] text-[#fff] rounded-md px-10 hover:bg-black py-3"> Place My Order <i class='bx bxs-gift text-xl align-top mx-2' ></i> </button>
+     <button  className="w-full cta bg-[#405DF8] text-[#fff] rounded-md px-10 hover:bg-black py-3"> Place My Order <i class='bx bxs-gift text-xl align-top mx-2' ></i> </button>
          
      </div> : 
          <div>
