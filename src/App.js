@@ -20,7 +20,7 @@ import Tennis from './Tennis/Tennis';
 import TennisDetail from './Tennis/TennisDetail';
 import Cart from './Cart';
 import Address from './Address';
-
+import WishList from './WishList';
 function App()
  {
    
@@ -64,7 +64,12 @@ function App()
       <Route path="/Cricket">
         <Cricket />
       </Route>
-     
+
+      <Route path="/Wishlist">
+        <WishList />
+      </Route>
+  
+
       <Route path="/Badminton/:id">
         <BadmintonDetail />
       </Route>

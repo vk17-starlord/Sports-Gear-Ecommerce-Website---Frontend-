@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import MainMenu from '../Store/MainMenu';
 import data from './FootballData.json';
-import {CartUpdateContext} from '../Context/CartContext';
+import {CartUpdateContext,WishListUpdateContext} from '../Context/CartContext';
 function FootDetail() {
 
 
@@ -29,6 +29,19 @@ const CheckCart = (ele)=>{
    alert('Product Added Succussfully !')
  }
 
+}
+
+// wish
+
+let wishUpdate = useContext(WishListUpdateContext)
+
+const CheckWish = (ele)=>{
+  let result = wishUpdate(ele);
+ if(result===false){
+  alert('Already added this product !')
+ }else{
+   alert(' Added To WishList Succussfully !')
+ } 
 }
 
 useEffect(() => { 
@@ -149,7 +162,9 @@ setMRP(rndInt)
      <button className ="cta flex justify-center items-center md:text-sm md:px-2  bg-[#405DF8] mt-2 w-full text-[#fff] rounded-md px-10 hover:bg-black py-3 font-semibold  text-md " onClick={()=>{
        CheckCart(product)
      }}>{isAdded?'Added To The Cart':'Add To Cart'} <i className='bx bxs-cart-alt text-xl mx-2 align-top'></i> </button>
-     <button className ="cta flex justify-center items-center md:text-sm md:px-2  bg-[#F3F5FF] mt-2 w-full text-[#405DF8] rounded-md px-10 border-2 border-[#405DF8]  py-3 font-semibold text-md ">Add To Wishlist <i className='bx bx-bookmark-heart text-xl mx-2 align-top'></i> </button>
+     <button onClick={()=>{
+       CheckWish(product)
+     }} className ="cta flex justify-center items-center md:text-sm md:px-2  bg-[#F3F5FF] mt-2 w-full text-[#405DF8] rounded-md px-10 border-2 border-[#405DF8]  py-3 font-semibold text-md ">Add To Wishlist <i className='bx bx-bookmark-heart text-xl mx-2 align-top'></i> </button>
      </div>
      </div>
     </div>
