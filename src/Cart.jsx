@@ -33,7 +33,7 @@ function Check(){
            <div className="md:w-full w-12/12 rounded-lg p-5 bg-white mx-auto">
            <h1 className='text-2xl  text-left pb-5 font-semibold'>Order Summary</h1>
       
-            <div className="grid-cols-2 grid gap-2 w-full">
+            <div className="grid-cols-2 md:grid-cols-1 grid gap-2 w-full">
             {
             bag.map((ele,index)=>
                <div key={index} className='w-full my-5 grid grid-cols-[3fr_9fr]' >
@@ -57,7 +57,7 @@ function Check(){
            </div>
       </div>
    <div className=" w-full">
-        <div className="min-h-[50vh] bg-white bill w-8/12 ml-auto p-5 mt-10">
+        <div className="min-h-[50vh] md:w-full bg-white bill w-8/12 ml-auto p-5 mt-10">
         <h1 className='text-2xl  text-left pb-5 font-semibold '>Final Bill</h1>
             <div className="border-t border-b py-4 my-2  w-full grid grid-cols-[5fr_7fr]">
             <h1 className='text-left font-semibold opacity-60 text-md'>Total Bill</h1>
