@@ -86,7 +86,7 @@ Check()
     </div>
   </div>
 :<div className='w-full h-[90vh] flex items-center justify-center'>
-    <div className="w-4/12 flex items-center flex-col">
+    <div className="w-4/12 md:w-10/12 flex items-center flex-col">
         
      <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-4816550-4004141.png" alt="" />
      <h1 className='text-center font-semibold text-[18px]'>Hey , The Cart Seems Empty !!  </h1>

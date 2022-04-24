@@ -5,8 +5,8 @@ function OrderConfirm() {
   return (
     <div className='fixed w-full flex justify-center items-center h-screen bg-white top-0 light-black'>
          
-         <div className="flex flex-col card w-[350px] p-5 min-h-[250px] justify-center items-center rounded-lg bg-white">
-              <img src={check} className="w-6/12" alt="check" />
+         <div className="flex flex-col  card w-[350px] p-5 min-h-[250px] justify-center items-center rounded-lg bg-white">
+              <img src={check} className="w-6/12 " alt="check" />
             <h1 className="font-semibold mt-2 text-[18px] text-[#405DF8] ">
               We've Confirmed Your Order !!
             </h1>
