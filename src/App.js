@@ -9,7 +9,6 @@ import SignIn from './LandingPage/SignIn';
 import SignUp from './LandingPage/SignUp';
 import UserProvider from './Context/UserProvider';
 import CartContext from './Context/CartContext';
-
 import Homepage from './Store/Homepage';
 import Cricket from './Cricket/Cricket';
 import CricketDetail from './Cricket/CricketDetail';
@@ -20,7 +19,6 @@ import FootballDetail from './Football/FootDetail';
 import Tennis from './Tennis/Tennis';
 import TennisDetail from './Tennis/TennisDetail';
 import Cart from './Cart';
-import Payment from './Payment';
 import Address from './Address';
 
 function App()
@@ -58,6 +56,7 @@ function App()
       <Route path="/Tennis/:id">
         <TennisDetail />
       </Route>
+
       <Route path="/Tennis">
         <Tennis />
       </Route>
@@ -79,9 +78,7 @@ function App()
         <Cart />
       </Route>
       
-      <Route path="/Payment">
-        <Payment />
-      </Route>
+      
       
       <Route path="/:id">
         <CricketDetail />

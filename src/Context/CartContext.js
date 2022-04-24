@@ -3,10 +3,13 @@ import React, {useState } from 'react'
 export const CartContext = React.createContext()
 export const CartUpdateContext = React.createContext()
 export const CartDeleteContext = React.createContext()
- 
+export const CartEmptyContext = React.createContext()
+  
 function CartProvider({children}) {  
     const [cart, setcart] = useState([]);
-    
+    const Empty=()=>{
+      setcart([])
+    }
     const RemoveElement = (id)=>{
       let products = cart.filter((ele)=>{
         if(ele.id!==id){
@@ -31,7 +34,10 @@ function CartProvider({children}) {
     <CartContext.Provider value={cart}>
       <CartUpdateContext.Provider value={UpdateCart}>
           <CartDeleteContext.Provider value={RemoveElement}>
-                     {children}
+
+               <CartEmptyContext.Provider value={Empty}>
+               {children}
+               </CartEmptyContext.Provider>
           </CartDeleteContext.Provider>
      </CartUpdateContext.Provider>
     </CartContext.Provider>

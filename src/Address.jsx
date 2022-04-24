@@ -1,21 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react'
 import MainMenu from './Store/MainMenu';
-import {CartContext} from './Context/CartContext'
+import {CartContext,CartEmptyContext} from './Context/CartContext'
 import MasterCard from './assets/mastercard.svg'
 import paypal from './assets/paypal.svg'
 import visa from './assets/visa.svg'
+import OrderConfirm from './OrderConfirm';
 
 function Address() {
-
+  let Empty = useContext(CartEmptyContext)
   let bag = useContext(CartContext) 
   const [total, settotal] = useState(0);
   let options= [visa,paypal,MasterCard]
-  console.log(options)
   const [Value, setValue] = useState(0);
   
-  const changeValue=(index)=>{
-    setValue(index)
-  }
+  const [isOpen, setisOpen] = useState(false);
+
 
 
 
@@ -33,27 +32,68 @@ function Address() {
  
 
   const [details, setdetails] = useState({
-    fname:null,
-    email:null,
-    mobile:null,
-    address:null,
-    state:null,
-    city:null,
-    zip:null,
+    fname:"",
+    email:"",
+    mobile:"",
+    address:"",
+    state:"",
+    city:"",
+    zip:"",
 }
 );
+
+const [card, setcard] = useState({
+ name:"",
+ cnumber:"",
+ expiration:"",
+ cvv:""
+}
+);
+
+function validCard(){
+  let  result = true;
+  for (const ele in card) {
+     if(card[ele]===""){
+         result=false;
+         break;
+       }
+  }
+  return result;
+}
+  function CheckCard(){
+      if(!validCard()){
+        alert('Please Enter All Details of Card !')
+      }else if(!validCheck()){
+         alert('Please Enter All Details of Address')
+      }else{
+         Empty()
+        setisOpen(true)
+      }
+  }
+
 
  
  function validCheck(){
     let result=true;
    for (const ele in details) {
-      if(details[ele]===null && details[ele].length>0 && details[ele]===" " ){
+      if(details[ele]===""){
           result=false;
-      }
-      break;
+          break;
+        }
+  
    }
    return result;
   }
+
+  function CheckAddress(){
+    if(!validCheck()){
+      alert('Please Enter All Address Details')
+         return false;
+    }
+    return true;
+  }
+
+
   return (
  <div>
    <MainMenu></MainMenu>
@@ -138,9 +178,9 @@ setdetails(values => ({...values, city: ev.target.value}))
 setdetails(values => ({...values, zip: ev.target.value}))
 }}   className="mt-1 px-3 py-4  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="411041" />   
 </div>            
-<button onClick={()=>{
-validCheck()
-}} className="w-full col-span-2 mt-4 cta bg-[#405DF8] text-[#fff] rounded-md px-10 hover:bg-black py-3 text-[18px] "> Save My Details <i class='mx-2 bx bxs-save text-xl align-top'></i> </button>
+<button  onClick={()=>{
+CheckAddress()
+}}  className="w-full col-span-2 mt-4 cta bg-[#405DF8] text-[#fff] rounded-md px-10 hover:bg-black py-3 text-[18px] "> Save My Details <i class='mx-2 bx bxs-save text-xl align-top'></i> </button>
 
     </div>
 
@@ -179,35 +219,45 @@ validCheck()
          <div className="grid grid-cols-2 gap-1 w-full">
          <div className="input mt-[12px] col-span-2">
 <p className='text-left text-[16px] mb-2'>Enter Name On Card </p>
-<input  type="text" name="card"  className="mt-1 px-3 py-2  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="John Doe" />   
+<input  onChange={(ev)=>{
+setcard(values => ({...values, name: ev.target.value}))
+}} type="text" name="card"  className="mt-1 px-3 py-2  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="John Doe" />   
 </div>      
 
 <div className="input mt-[12px] col-span-2">
 <p className='text-left text-[16px] mb-2'>Enter Card Number </p>
-<input  type="text" name="card"  className="mt-1 px-3 py-2  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="917 462 282 4282" />   
+<input  onChange={(ev)=>{
+setcard(values => ({...values, cnumber: ev.target.value}))
+}} type="text" name="card"  className="mt-1 px-3 py-2  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="917 462 282 4282" />   
 </div>      
 
 <div className="input mt-[12px] ">
 <p className='text-left text-[16px] mb-2'>Expiration </p>
-<input  type="text" name="card"  className="mt-1 px-3 py-2  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="12/24" />   
+<input onChange={(ev)=>{
+setcard(values => ({...values, expiration: ev.target.value}))
+}}  type="text" name="card"  className="mt-1 px-3 py-2  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="12/24" />   
 </div>      
 
 <div className="input mt-[12px] ">
 <p className='text-left text-[16px] mb-2'>CVV </p>
-<input  type="password" name="card"  className="mt-1 px-3 py-2  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="* * *" />   
+<input onChange={(ev)=>{
+setcard(values => ({...values, cvv: ev.target.value}))
+}} type="password" name="card"  className="mt-1 px-3 py-2  border  border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="* * *" />   
 </div>   
          </div>
 
          <button onClick={()=>{
-validCheck()
-}} className="w-full col-span-2 mt-4 md:text-[15px] md:px-0 cta bg-[#405DF8] text-[#fff] rounded-md px-10 hover:bg-black py-3 text-[18px] "> Confirm Payment Of  <span className='font-bold'>₹ {total+99+150}</span> </button>
+        CheckCard()
+         }} className="w-full col-span-2 mt-4 md:text-[15px] md:px-0 cta bg-[#405DF8] text-[#fff] rounded-md px-10 hover:bg-black py-3 text-[18px] "> Confirm Payment Of  <span className='font-bold'>₹ {total+99+150}</span> </button>
 
 </div>
 
 </div>
 
     </div>
-
+{
+  isOpen===true ? <OrderConfirm/>:null
+}
  </div>
     )
 }
